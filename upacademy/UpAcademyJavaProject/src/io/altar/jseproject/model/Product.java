@@ -1,5 +1,8 @@
 package io.altar.jseproject.model;
 
+import io.altar.jseproject.repository.*;
+
+
 public class Product extends Entity{
 //	private int productId;
 //	private String shelfList;
@@ -61,7 +64,10 @@ public class Product extends Entity{
 		this.discount = discount;
 		this.tax = tax;
 		this.sellPrice = sellPrice;
+		ProductRepository.getInstance().PutOnListProduct(this);
 	}
+	
+	
 	
 }
 

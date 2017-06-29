@@ -1,7 +1,10 @@
 package io.altar.jseproject.model;
 
+import io.altar.jseproject.repository.*;
+
 public class Shelf extends Entity {
 //	private int shelfId;
+	private int productID;
 	private int location;
 	private int capacity;
 	private double rentPrice;
@@ -11,7 +14,14 @@ public class Shelf extends Entity {
 //	}
 //	public void setShelfId(int shelfId) {
 //		this.shelfId = shelfId;
+//	}
+	
+	public int getProductID(){
+		return productID;
 	}
+	public void setProductID(int productID){
+		this.productID = productID;
+
 	public int getLocation() {
 		return location;
 	}
@@ -36,6 +46,7 @@ public class Shelf extends Entity {
 		this.location = location;
 		this.capacity = capacity;
 		this.rentPrice = rentPrice;
+		ShelfRepository.getInstance().PutOnListShelf(this);
 	}
 	
 	
