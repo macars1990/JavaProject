@@ -12,5 +12,23 @@ import io.altar.upacademy.repository.ProductRepository;
 @RequestScoped
 
 public class ProductService {
+	
+	private ProductRepository ProductList = ProductRepository.getInstance();
+	
+	public void createProducts(Product product) {
+		ProductList.PutOnListProduct(product);
+	}
+	
+	public void removeProducts(Product product){
+		ProductList.remove(product.getId());
+	}
+	
+	public void editProducts(Product product){
+		ProductList.editProduct(product.getId(), product.getDiscount(), product.getTax(), product.getSalePrice());
+	}
+	
+	public Collection<Product> getProducts(){
+		return ProductList.getall();
+	}
 
 }
